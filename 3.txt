@@ -1,0 +1,43 @@
+
+
+
+
+import pandas as pd
+import numpy as np
+---------------------------------
+df = pd.read_csv(r'pract3.csv')
+df.head()
+------------------------------------
+df.age_group.unique() #returns unique age grps
+
+# aggregate functions
+df.groupby(df.age_group).min()
+df.groupby(df.age_group).max()
+df.groupby(df.age_group).mean()
+df.groupby(df.age_group).median()
+df.groupby(df.age_group).std()
+df.groupby(df.age_group).describe()
+----------------------------------------------------
+
+from sklearn import datasets
+
+------------------------------------------
+data = datasets.load_iris()
+df = pd.DataFrame(data.data,columns=data.feature_names)
+df['species']=pd.Series(data.target)
+df.head()
+----------------------------------------
+
+df.species.unique()
+-----------------------------------------------------
+
+df.groupby(df.species).count()
+--------------------------------------
+df.groupby(df.species).max()
+-----------------------------
+
+df.groupby(df.species)["sepal length (cm)"].describe()
+
+
+
+

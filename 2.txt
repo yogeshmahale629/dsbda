@@ -1,0 +1,51 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+data = pd.read_csv("/home/d/Documents/DSBDL/02/student.csv")
+
+df.isnull()
+
+series = pd.isnull(df["math score"])
+df[series]
+
+df
+df.notnull()
+
+series1 = pd.notnull(df["math score"])
+df[series1]
+
+# Finding Null Values in specific column and filling null values with "No marks".
+print(pd.isnull(data['Marks']))
+data['Marks'].fillna('No Marks',inplace=True)
+print(data)
+
+#Step 4:To drop rows with at least 1 null value
+ndf.dropna()
+
+#Step 5: To Drop rows if all values in that row are missing
+ndf.dropna(how = 'all')
+
+#Step 6: To Drop columns with at least 1 null value.
+ndf.dropna(axis = 1)
+
+
+-------------------------------------------------------------------------
+import pandas as pd
+import matplotlib.pyplot as plt
+
+data = pd.read_csv("/home/d/Documents/DSBDL/02/student.csv")
+
+
+# Create a boxplot for the "Test 1 score" variable
+boxplot = data.boxplot(column=['ID','Marks'])
+plt.show()
+
+col = ['math score', 'reading score' , 'writing
+score','placement score']
+df.boxplot(col)
+
+print(np.where(df['math score']>90)
+print(np.where(df['reading score']<25))
+print(np.where(df['writing score']<30))
+

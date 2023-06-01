@@ -1,0 +1,54 @@
+import pandas as pd
+
+# Load the iris dataset
+iris_data = pd.read_csv('iris.csv')
+
+
+
+from sklearn.model_selection import train_test_split
+
+# Split the dataset into features and labels
+X = iris_data.iloc[:, :-1]
+y = iris_data.iloc[:, -1]
+
+# Split the dataset into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+
+
+from sklearn.naive_bayes import GaussianNB
+
+# Create a Naive Bayes classifier object
+nb_classifier = GaussianNB()
+
+
+
+
+# Make predictions on the test set
+y_pred = nb_classifier.predict(X_test)
+
+
+from sklearn.metrics import confusion_matrix, accuracy_score, precision_score, recall_score, f1_score
+
+# Compute the confusion matrix
+confusion_mat = confusion_matrix(y_test, y_pred)
+
+# Compute accuracy
+accuracy = accuracy_score(y_test, y_pred)
+
+# Compute precision, recall, and F1-score for each class
+precision = precision_score(y_test, y_pred, average=None)
+recall = recall_score(y_test, y_pred, average=None)
+f1 = f1_score(y_test, y_pred, average=None)
+
+
+print("Confusion Matrix:")
+print(confusion_mat)
+print("Accuracy:", accuracy)
+print("Precision:", precision)
+print("Recall:", recall)
+print("F1-Score:", f1)
+
+
+# Train the classifier
+nb_classifier.fit(X_train, y_train)

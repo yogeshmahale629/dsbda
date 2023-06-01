@@ -1,0 +1,29 @@
+        
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+%matplotlib inline
+
+-------------------------------------------
+
+from sklearn.datasets import load_boston
+data = load_boston()
+----------------------------------------------------
+df = pd.DataFrame(data.data,columns=data.feature_names)
+df.head()
+-------------------------------------------------
+df.price=data.target
+df.head()
+------------------------------------
+df.describe()
+---------------------------------
+df.info()
+------------------------------------------------
+df.isnull().sum()
+---------------------------------------------------
+sns.set(rc={'figure.figsize':(11.6,8.23)})
+sns.displot(df.price,bins=30)
+plt.show()
+----------------------------------------------

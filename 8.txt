@@ -1,0 +1,51 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+dataset = sns.load_dataset('titanic')
+dataset.head()
+
+sns.displot(dataset['fare'])
+plt.show()
+
+sns.displot(dataset['fare'], kde=False)
+plt.show()
+
+sns.displot(dataset['fare'], kde=False, bins=10)
+plt.show()
+
+
+sns.jointplot(x='age', y='fare', data=dataset)
+
+sns.jointplot(x='age', y='fare', data=dataset, kind='hex')
+
+sns.pairplot(dataset)
+
+dataset = dataset.dropna()
+
+
+
+sns.pairplot(dataset, hue='sex')
+plt.show()
+
+sns.rugplot(dataset['fare'])
+
+sns.barplot(x='sex', y='age', data=dataset)
+
+sns.rugplot(dataset['fare'])
+plt.show()
+----------------------------------------------------------
+
+import pandas as pandas
+import numpy as numpy
+import matplotlib.pyplot as pyplot
+import seaborn as sns
+dataset = sns.load_dataset('titanic')
+dataset.head()
+# The Dist Plot
+sns.displot(dataset['fare'],kde=False,bins=10)
+# The Joint Plot
+sns.jointplot(x='age', y='fare', data=dataset, kind='hex')
+#The Rug Plot
+sns.rugplot(dataset['fare'])
+pyplot.show()
